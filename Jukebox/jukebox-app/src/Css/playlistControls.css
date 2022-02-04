@@ -1,0 +1,27 @@
+.table-wrapper{
+    position: relative;        
+    flex:6;
+    overflow-y:scroll;
+    overflow-x:hidden;   
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;
+}
+.table-wrapper table{
+    margin:0;
+}
+.table-wrapper tbody tr:hover{
+    background-color:#915e0088;
+    cursor: pointer;
+}
+.table-dark.table-striped tbody tr:nth-of-type(odd):hover{
+    background-color: #bb79007e;
+    cursor: pointer;
+}
+
+.table-wrapper::-webkit-scrollbar {
+    display: none;
+  }
+
+.controltop{
+    flex:1
+}

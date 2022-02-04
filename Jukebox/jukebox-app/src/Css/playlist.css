@@ -1,0 +1,27 @@
+#playlist {
+  flex: 20;
+  background-image: linear-gradient(to right, #1b1b1b, black, #1b1b1b);
+  overflow: scroll;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+
+}
+.orange {
+  background-color: #ffa500;
+  color: black;
+  font-weight: bold;
+}
+.playlistItem:hover{
+   cursor: pointer;
+}
+.playlistItem img{
+  width: 26px;
+  height: 26px;
+  margin:0;
+  padding:0;
+}
+
+#playlist::-webkit-scrollbar {
+  display: none;
+}
+

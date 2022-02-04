@@ -1,0 +1,131 @@
+#search {
+  /* background-color: #1b1b1b; */
+  background-image: linear-gradient(to right, #1b1b1b, black, #1b1b1b);
+  flex: 5;
+  overflow: hidden;  
+  display:flex;
+  flex-direction: column;
+}
+
+.searchResult {
+  /* background-color: #1b1b1b; */
+  background-image: linear-gradient(to right, #1b1b1b, black, #1b1b1b);
+  color: aliceblue;
+  border-color: rgb(0, 0, 0);
+  border-style: solid;
+  cursor: pointer;
+}
+.searchResult:hover {
+  /* background-color: #8b1c00; */
+  background-image: linear-gradient(to right, #1b1b1b, #1f4a72, #1b1b1b);
+}
+
+/* #search input {
+  background-color: #2e2e2e;
+  color: aliceblue;
+} */
+
+.form-control:focus {
+  border-color: #ff7300;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 0, 0, 0.6);
+}
+.form-control {
+  margin: 2px;
+}
+.btn {
+  margin: 2px;
+}
+
+#animationContainer {
+  width: 100%;
+  height: 90%;
+  display: flex;
+  justify-content: center;
+}
+#inbetweenContainer {
+  align-self: center;
+}
+.lds-dual-ring {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+}
+.lds-dual-ring:after {
+  content: " ";
+  display: block;
+  width: 20em;
+  height: 20em;
+
+  border-radius: 50%;
+  border: 12px solid #fff;
+  border-color: #fff transparent #fff transparent;
+  animation: lds-dual-ring 10s linear infinite;
+}
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(180deg);
+  }
+}
+
+/* Blöcke
+.lds-default1 {
+  display: inline-block;
+  position: sticky;
+  width: 100%;
+  height: 100%;
+}
+.lds-default1 div {
+  position: absolute;
+  width: 10%;
+  height: 10%;
+  top: 0%;
+  left: 0%;
+  background-color: #02013f;
+  border-radius: 2%;
+  animation: cubic;
+  animation-duration: 12s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate-reverse;
+}
+.lds-default1 :nth-child(1) {
+  animation-delay: 0s;
+  animation-timing-function: linear;
+}
+.lds-default1 :nth-child(2) {
+  animation-delay: 3s;
+  animation-timing-function: linear;
+}
+.lds-default1 :nth-child(3) {
+  animation-delay: 6s;
+  animation-timing-function: linear;
+}
+.lds-default1 :nth-child(4) {
+  animation-delay: 9s;
+  
+}
+
+@keyframes cubic {
+  0% {
+    top: 0%;
+    left: 0%;
+  }
+  25% {
+    top: 0%;
+    left: 90%;
+  }
+  50% {
+    top: 80%;
+    left: 90%;
+  }
+  75% {
+    top: 80%;
+    left: 0%;
+  }
+  100% {
+    top: 0%;
+    left: 0%;
+  }
+} */

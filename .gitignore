@@ -1,0 +1,15 @@
+.vs
+bin
+obj
+FFPempek/bin
+FFPempek/obj
+FFPempek/.vs
+MediaManagement.MediaFiles/.vs
+MediaManagement.MediaFiles/obj
+MediaManagement.MediaFiles/bin
+MusicGeter/.vs
+MusicGeter/bin
+MusicGeter/obj
+SptotifyApiCalls/.vs
+SptotifyApiCalls/bin
+SptotifyApiCalls/obj

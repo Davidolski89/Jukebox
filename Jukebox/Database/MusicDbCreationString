@@ -1,0 +1,58 @@
+﻿CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" TEXT NOT NULL CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY,
+    "ProductVersion" TEXT NOT NULL
+);
+
+CREATE TABLE "Playlists" (
+    "Id" INTEGER NOT NULL CONSTRAINT "PK_Playlists" PRIMARY KEY AUTOINCREMENT,
+    "CD" INTEGER NOT NULL,
+    "Name" TEXT NULL,
+    "Files" INTEGER NOT NULL,
+    "Path" TEXT NULL,
+    "Cover" INTEGER NOT NULL,
+    "Cached" INTEGER NOT NULL,
+    "TimeAdded" TEXT NOT NULL,
+    "Genre" TEXT NULL,
+    "Uploader" TEXT NULL
+);
+
+CREATE TABLE "Tracks" (
+    "Id" INTEGER NOT NULL CONSTRAINT "PK_Tracks" PRIMARY KEY AUTOINCREMENT,
+    "NameExtension" TEXT NULL,
+    "Name" TEXT NULL,
+    "Time" TEXT NULL,
+    "Path" TEXT NULL,
+    "DownloadPath" TEXT NULL,
+    "DownloadPathOpus" TEXT NULL,
+    "DownloadLink" TEXT NULL,
+    "UsersId" TEXT NULL,
+    "Cached" INTEGER NOT NULL,
+    "Downloaded" INTEGER NOT NULL,
+    "Cover" INTEGER NOT NULL,
+    "Tag" INTEGER NOT NULL,
+    "TimeAdded" TEXT NOT NULL,
+    "Codec" TEXT NULL,
+    "Type" TEXT NULL,
+    "Samplerate" INTEGER NOT NULL,
+    "Bitrate" INTEGER NOT NULL,
+    "Duration" INTEGER NOT NULL,
+    "Size" REAL NOT NULL,
+    "Album" TEXT NULL,
+    "Title" TEXT NULL,
+    "Interpret" TEXT NULL,
+    "Date" TEXT NULL,
+    "Genre" TEXT NULL
+);
+
+CREATE TABLE "PlaylistTracks" (
+    "MusicFileId" INTEGER NOT NULL,
+    "PlaylistId" INTEGER NOT NULL,
+    CONSTRAINT "PK_PlaylistTracks" PRIMARY KEY ("MusicFileId", "PlaylistId"),
+    CONSTRAINT "FK_PlaylistTracks_Tracks_MusicFileId" FOREIGN KEY ("MusicFileId") REFERENCES "Tracks" ("Id") ON DELETE CASCADE,
+    CONSTRAINT "FK_PlaylistTracks_Playlists_PlaylistId" FOREIGN KEY ("PlaylistId") REFERENCES "Playlists" ("Id") ON DELETE CASCADE
+);
+
+CREATE INDEX "IX_PlaylistTracks_PlaylistId" ON "PlaylistTracks" ("PlaylistId");
+
+INSERT INTO "__EFMigrationsHistory" ("MigrationId", "ProductVersion")
+VALUES ('20210421234544_initial', '3.1.13');

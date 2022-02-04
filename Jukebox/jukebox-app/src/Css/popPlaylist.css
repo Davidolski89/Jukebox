@@ -1,0 +1,56 @@
+#popPlaylist{
+    display: flex;
+    flex-direction: column;
+    color:white;
+    background-color: rgb(38, 44, 51);
+    position: fixed;
+    height: 100px;
+    width: 300px;    
+    left:40%;
+    z-index:2000;
+    border-radius: 12px;
+    border: solid;
+    border-color: rgb(77, 73, 73);
+    transition: height 2s;
+}
+#popPlaylist .popMessage{
+    flex:1;
+    align-self: center;
+}
+#popPlaylist .popDecision{
+    flex:1;
+    display: flex;
+}
+#popPlaylist .yesDecision{
+    flex:1;
+}
+#popPlaylist .noDecision{
+    flex:1;
+}
+
+/* #popPlaylistHidden{
+    display: flex;
+    height: 100;
+    width: 300px; 
+    position: fixed;
+    background-color: rgb(38, 44, 51);
+    left:40%;
+    top:-120px;
+    transition: height 2s;
+}
+#popPlaylistHidden .popMessage{
+    flex:1;
+}
+
+#popPlaylistHidden .popDecision{
+    flex:1;
+    display: flex;
+    justify-content: space-evenly
+
+}
+#popPlaylist .yesDecision{
+    flex:1;
+}
+#popPlaylist .noDecision{
+    flex:1;
+} */

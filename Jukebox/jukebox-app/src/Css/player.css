@@ -1,0 +1,175 @@
+#player {
+  background-image: linear-gradient(to right, #1b1b1b, black, #1b1b1b);
+  flex: 3;
+  min-width: 60px;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+}
+#player button {
+  height: 100px;
+  width: 200px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 32px;
+}
+#skipButton:focus {
+  background-image: linear-gradient(to right, #1b1b1b, black, #1b1b1b);
+}
+#skipButton:active {
+  border: #000000;
+}
+#skipButton {
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -o-transition: none !important;
+  transition: none !important;
+}
+
+#progressContainer {
+  background-image: linear-gradient(to right, #1b1b1b, black, #1b1b1b);
+  flex: 30;
+  display: grid;
+  opacity: 1;
+  grid-template-columns: 100%;
+  grid-template-rows: 100%;
+}
+#progressbar {
+  background-image: linear-gradient(to right, #1b1b1b, black, #1b1b1b);
+  order: 1;
+  align-self: flex-end;
+  width: 100%;
+  opacity: 0.3;
+  grid-column: 1;
+  grid-row: 1;
+}
+#waveForm {
+  width: 100%;
+  opacity: 1;
+  order: 1;
+  align-self: stretch;
+  grid-row: 1;
+  grid-column: 1;
+}
+
+/* region range Object */
+input[type="range"] {
+  -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+  width: 100%; /* Specific width is required for Firefox. */
+  background: transparent; /* Otherwise white in Chrome */
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+
+input[type="range"]:focus {
+  outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+}
+
+input[type="range"]::-ms-track {
+  width: 100%;
+  cursor: pointer;
+
+  /* Hides the slider so custom styles can be added */
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+
+/* Own Styling */
+/* Nur der knop */
+/* Special styling for WebKit/Blink */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: 1px solid #000000;
+  height: 24px;
+  width: 10px;
+  border-radius: 6px;
+  background: #a14000;
+  cursor: pointer;
+  margin-top: -9px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d; /* Add cool effects to your sliders! */
+}
+
+/* All the same stuff for Firefox */
+input[type="range"]::-moz-range-thumb {
+  /* box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d; */
+  border: 1px solid #000000;
+  height: 24px;
+  width: 10px;
+  border-radius: 6px;
+  background: #a14000;
+  cursor: pointer;
+}
+
+input[type="range"]::-ms-thumb {
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  border: 1px solid #000000;
+  height: 12px;
+  width: 12px;
+  border-radius: 6px;
+  background: #da1001;
+  cursor: pointer;
+}
+/* knop ende */
+
+input[type="range"]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 8px;
+  cursor: pointer;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  background: #1e2442;
+  border-radius: 1.3px;
+  border: 0.2px solid #010101;
+}
+/* 
+input[type="range"]:focus::-webkit-slider-runnable-track {
+  background: #5b5f63;
+} */
+
+input[type="range"]::-moz-range-track {
+  width: 100%;
+  height: 7px;
+  cursor: pointer;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  background: #1e2442;
+  border-radius: 1.3px;
+  border: 0.2px solid #010101;
+}
+
+input[type="range"]::-ms-track {
+  width: 100%;
+  height: 12px;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  border-width: 16px 0;
+  color: transparent;
+}
+input[type="range"]::-ms-fill-lower {
+  background: #1e2442;
+  border: 0.2px solid #010101;
+  border-radius: 2.6px;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+}
+/* input[type="range"]:focus::-ms-fill-lower {
+  background: #3071a9;
+} */
+input[type="range"]::-ms-fill-upper {
+  background: #3071a9;
+  border: 0.2px solid #010101;
+  border-radius: 2.6px;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+}
+input[type="range"]:focus::-ms-fill-upper {
+  background: #367ebd;
+}
+
+#volume {
+  flex: 1;
+  align-self: stretch;
+  padding: 3px 3px;
+}

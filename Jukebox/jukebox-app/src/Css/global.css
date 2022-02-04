@@ -1,0 +1,18 @@
+body,
+#root,
+#mainContainer {
+  width: 100vw;
+  height: 100vh;
+}
+
+#mainContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: no-wrap;
+}
+
+#consoleSearch {
+  display: flex;
+  flex-direction: column;
+  flex: 20;
+}

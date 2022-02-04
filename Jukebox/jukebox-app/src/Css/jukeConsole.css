@@ -1,0 +1,15 @@
+#jukeConsole {
+  align-self: flex-start;
+}
+#jukeConsole {
+  background-color: black;
+  color: white;
+  flex: 3;
+  align-self: stretch;
+  overflow: hidden;
+}
+
+#jukeConsole ul {
+  list-style-type: none;
+  padding-left: 20px;
+}

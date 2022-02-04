@@ -2,8 +2,8 @@
 Listen together to spotify playlists
 
 # Description
-React SPA Application which allows you to listen to Spotify playlists with anybody visiting tha page.
-.NET backend to support functionanlity.
+React SPA Application which allows you to listen to Spotify playlists with anybody visiting the page.
+.NET backend to support functionality.
 
 # Features 
 - parse public spotify playlists
@@ -23,7 +23,7 @@ React SPA Application which allows you to listen to Spotify playlists with anybo
 - ffmpeg/ffprobe binaries for your platform  
 - Get access to Spotify API by registering an app in the developer section
 #### 2. Main
-1. configure paths and Spotify id/secret in appsetting.json
+1. configure paths and Spotify id/secret in appsettings.json
 
 ### Technologies
 Frontend: React, [SignalR](https://github.com/SignalR/SignalR) (WebSockets)  

@@ -21,9 +21,29 @@ namespace Jukebox.Data
             else
             {
                 container.SearchString = container.MusicFile.Interpret + " " + container.MusicFile.Title;
+            }            
+        }
+        public static void NameToInterpretTitle(this MusicFile container)
+        {
+            char[] seperatorsI = { '-' };
+            string[] wordsI = container.Name.Split(seperatorsI).ToArray();
+            if(wordsI.Length > 1)
+            {
+                container.Interpret = wordsI[0];
+                container.Title = wordsI[1];
             }
-            
-        }       
+            else
+            {
+                char[] seperators = { ' ' };
+                string[] words = container.Name.Split(seperators).ToArray();
+                container.Interpret = words[0];
+                container.Title = String.Join(" ", words.Skip(1));
+            }
+        }
+        public static void RemoveWrongFormating(this MusicFileContainer container)
+        {
+            container.MusicFile.Name.Replace("&ndash;", "-");
+        }
         public static void ReduceSearchWords(this MusicFileContainer container)
         {
             container.SearchWords = container.SearchWords.Take(container.SearchWords.Count()-1).ToArray();

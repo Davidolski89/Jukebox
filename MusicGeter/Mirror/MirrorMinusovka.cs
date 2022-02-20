@@ -1,14 +1,13 @@
-﻿using System;
+﻿using HtmlAgilityPack;
+using MediaManagement.MediaFiles;
+using ScrapySharp.Extensions;
+using ScrapySharp.Html;
+using ScrapySharp.Network;
+using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Collections.Generic;
 using System.Text;
-using HtmlAgilityPack;
-using ScrapySharp;
-using ScrapySharp.Html;
-using ScrapySharp.Extensions;
-using ScrapySharp.Network;
-using MediaManagement.MediaFiles;
 
 namespace MusicGeter
 {
@@ -20,7 +19,7 @@ namespace MusicGeter
         public string RootPath { get; set; }
         public List<MusicFile> CurrentSongList { get; set; } = new List<MusicFile>();
         public List<string> FilterWords { get; set; }
-       
+
         //MusicFileContainer _spotiContainer = new MusicFileContainer();
         public MusicFile SpotiFile { get; set; }
 
@@ -73,12 +72,12 @@ namespace MusicGeter
         {
             if (!container.OnHDD)
             {
-                container.InterpretTitleToSearchString(oneInterpret);
+                //container.InterpretTitleToSearchString(oneInterpret);
                 if (rmWord)
                     container.ReduceSearchWords();
                 string requestUrl = CreateRequestUrl(container);
                 List<MusicFile> Lieder = new List<MusicFile>();
-                wowzer.Encoding = Encoding.UTF8;
+                wowzer.Encoding = Encoding.Default;
                 WebPage homePage;
                 try
                 {
@@ -91,12 +90,21 @@ namespace MusicGeter
                         {
                             Interpret = container.MusicFile != null ? container.MusicFile.Interpret : "",
                             Title = container.MusicFile != null ? container.MusicFile.Title : "",
+                            Name = item.ChildNodes[2].ChildNodes[0].InnerText,
                             DownloadLink = mirrorDomain + item.Elements("a").ElementAt(1).GetAttributeValue("href"),
                             DownloadPathOpus = container.MusicFile != null ? container.MusicFile.DownloadPathOpus : "",
                             Time = item.SelectSingleNode("span").InnerText,
                             Date = DateTime.Now.Year.ToString() + "." + DateTime.Now.Month.ToString() + "." + DateTime.Now.Day.ToString()
                         };
-                        if (!anyTime && spotiTimeComparer(container.MusicFile, file))
+                        file.RemoveWrongFormating();
+                        file.NameToInterpretTitle();
+
+                        //new 
+                        if (container.MusicFile is null)
+                        {
+                            Lieder.Add(file);
+                        }
+                        else if (!anyTime && spotiTimeComparer(container.MusicFile, file))
                             Lieder.Add(file);
                         else if (anyTime)
                             Lieder.Add(file);
@@ -149,7 +157,7 @@ namespace MusicGeter
         public void SpotifyGetMusicFiles(MusicFileContainer container, int amount, bool oneInterpret = false, bool anyTime = false, bool rmWord = false)
         {
             if (!container.OnHDD)
-            {                                
+            {
                 container.InterpretTitleToSearchString(oneInterpret);
                 if (rmWord)
                     container.ReduceSearchWords();
@@ -161,7 +169,7 @@ namespace MusicGeter
                 {
                     homePage = wowzer.NavigateToPage(new Uri(requestUrl));
                     IEnumerable<HtmlNode> chkds = homePage.Find("div", By.Class("chkd"));
-                    
+
                     foreach (var item in chkds)
                     {
                         MusicFile file = new MusicFile
@@ -174,28 +182,28 @@ namespace MusicGeter
                             Date = DateTime.Now.Year.ToString() + "." + DateTime.Now.Month.ToString() + "." + DateTime.Now.Day.ToString()
                         };
                         if (!anyTime && spotiTimeComparer(container.MusicFile, file))
-                            Lieder.Add(file);                               
-                        else if (anyTime)                      
-                            Lieder.Add(file);                        
-                    }                    
+                            Lieder.Add(file);
+                        else if (anyTime)
+                            Lieder.Add(file);
+                    }
                     if (Lieder.Count > 0)
-                    {                        
-                        if(!(CurrentSongList is null))
+                    {
+                        if (!(CurrentSongList is null))
                             if (CurrentSongList.Count > 1)
                                 CurrentSongList.RemoveRange(0, CurrentSongList.Count);
                         CurrentSongList = Lieder.ToList();
                     }
                 }
-                catch(Exception e)
+                catch (Exception e)
                 {
                     Console.WriteLine(e.Message);
-                    Console.Write("Catch in R_minusovka");             
+                    Console.Write("Catch in R_minusovka");
                 }
             }
         }
         public bool SpotifyDownloadMusicFile()
         {
-            bool returnBool = false;            
+            bool returnBool = false;
             foreach (MusicFile musicfile in CurrentSongList)
             {
                 try
@@ -214,11 +222,11 @@ namespace MusicGeter
                         CurrentSongList.RemoveRange(0, CurrentSongList.Count);
                     break;
                 }
-                catch(Exception e)
+                catch (Exception e)
                 {
                     Console.WriteLine(e.Message);
                     Console.Write(" Catch in D_minusovka");
-                    returnBool = false;                    
+                    returnBool = false;
                 }
             }
             return returnBool;
@@ -241,7 +249,7 @@ namespace MusicGeter
                     return false;
             }
             else
-                return false;            
+                return false;
         }
 
         //old

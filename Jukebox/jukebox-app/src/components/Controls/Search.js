@@ -45,7 +45,8 @@ const Search = (props) => {
               key={index}
               onClick={() => props.sendAddToQueue(result[3], result[4])}
             >
-              {result[0] + " - " + result[1] + " " + result[2]}
+              {result[0] + " - " + result[2]}
+              {/* {result[0] + " - " + result[1] + " " + result[2]} */}
             </li>
           ))}
         </ul>

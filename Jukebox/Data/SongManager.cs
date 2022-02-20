@@ -98,7 +98,7 @@ namespace Jukebox.Data
         public IEnumerable<string[]> ReturnQueList()
         {
             
-            return QueList.Where(x => x.Downloaded == true).Select(x => new string[] { x.Id.ToString(), x.Interpret, x.Title, x.Time, VoteCount(x.Id), x.Samplerate.ToString(), x.Size.ToString(), x.Codec.ToString() });
+            return QueList.Where(x => x.Downloaded == true && x.Codec == "mp3").Select(x => new string[] { x.Id.ToString(), x.Interpret, x.Title, x.Time, VoteCount(x.Id), x.Samplerate.ToString(), x.Size.ToString(), x.Codec.ToString() });
         }
         public void StartTimer()
         {

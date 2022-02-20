@@ -64,7 +64,7 @@ namespace Jukebox.Hubs
                 int counter = 0;
                 foreach (var song in mirror.CurrentSongList)
                 {
-                    temp.Add(new object[] { song.Interpret, song.Title, song.Time, mirror.MirrorName ,counter });
+                    temp.Add(new object[] { song.Name, song.Title, song.Time, mirror.MirrorName ,counter });
                     counter++;
                 }                
             }

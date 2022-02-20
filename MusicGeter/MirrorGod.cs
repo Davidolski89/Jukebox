@@ -36,7 +36,7 @@ namespace MusicGeter
             foreach (IMirror mirror in Mirrors)
             {
                 if (mirror.MirrorName != MirrorName.HDD)
-                    mirror.GetMusicFiles(container, 6, true); // was false
+                    mirror.GetMusicFiles(container, amount, true); // was false
             }
         }       
         public void DownloadMusicFile(MirrorName mirrorName, int number = 0)
